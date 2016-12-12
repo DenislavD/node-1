@@ -1,3 +1,4 @@
+//dependencies
 var express = require('express');
 var router = express.Router();
 var ctrlLocations = require('../controllers/locations');
@@ -11,4 +12,5 @@ router.get('/location/review/new', ctrlLocations.addReview);
 /* Other pages */
 router.get('/about', ctrlOthers.about);
 
+//exposed context
 module.exports = router;
