@@ -6,8 +6,15 @@ html(ng-app='wifilocApp')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    script(src='/javascripts/angular/angular.js')
-    script(src='/javascripts/angular/app.js')
+    script(src='/lib/angular.js')
+    script(src='/lib/angular-route.js')
+    script(src='/javascripts/wifiloc.min.js')
+    //- script(src='/app.js')
+    //- script(src='/home/home.controller.js')
+    //- script(src='/common/services/wifilocData.service.js')
+    //- script(src='/common/services/geolocation.service.js')
+    //- script(src='/common/filters/formatDistance.filter.js')
+    //- script(src='/common/directives/ratingStars/ratingStars.directive.js')
     script(src='/javascripts/jquery-1.12.4.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
     script(src='/javascripts/validation.js')
@@ -28,7 +35,8 @@ html(ng-app='wifilocApp')
               a(href='/about/') About
 
     .container
-      block content
+      div(ng-view)
+        block content
 
     footer.footer
       .container
