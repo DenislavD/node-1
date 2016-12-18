@@ -8,25 +8,13 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 var renderHomePage = function(req, res, locArr) {
-    var message;
-    if(!(locArr instanceof Array)) {
-        message = 'API lookup error';
-        locArr = [];
-    } else {
-        if(!locArr.length) {
-            message = 'No places found nearby';
-        }
-    }
-
     res.render('locations-list', {
         title: 'WifiLoc - find a place to work with wifi',
         pageHeader: {
             title: 'WifiLoc',
             strapline: 'Find places to work with wifi near you!'
         },
-        sidebar: 'Looking for wifi and a seat? WifiLoc helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let WifiLoc help you find the place you\'re looking for.',
-        locations: locArr,
-        message: message
+        sidebar: 'Looking for wifi and a seat? WifiLoc helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let WifiLoc help you find the place you\'re looking for.'
     });
 };
 
@@ -75,19 +63,6 @@ var getLocationInfo = function(req, res, callback) {
     });
 };
 
-var _formatDistance = function(distance) {
-    distance = parseFloat(distance) || 0;
-    var numDistance, unit;
-    if(distance > 1000) {
-        numDistance = parseFloat(distance / 1000).toFixed(1);
-        unit = 'km';
-    } else {
-        numDistance = parseInt(distance);
-        unit = 'm';
-    }
-    return numDistance + unit;
-};
-
 var _showError = function(req, res, status) {
     var title, content;
     if(status === 404) {
@@ -108,26 +83,7 @@ var _showError = function(req, res, status) {
 
 /* GET Home page */
 module.exports.homeList = function(req, res, next) {
-    var path = '/api/locations';
-    var requestOptions = {
-        url: apiOptions.server + path,
-        method: 'GET',
-        json: {},
-        qs: {
-            lng: -0.79925,
-            lat: 51.37809,
-            dis: 50,
-        }
-    };
-    request(requestOptions, function(err, response, body) {
-        if(response.statusCode === 200 && body.length) {
-            for(var el, i = 0; i < body.length; i++) {
-                el = body[i];
-                el.distance = _formatDistance(el.distance);
-            }
-        }
-        renderHomePage(req, res, body);
-    });
+    renderHomePage(req, res);
 };
 
 /* GET Location info page */
