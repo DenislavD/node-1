@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<navigation></navigation>
 
-</body>
-</html>
+<div class="container">
+    <page-header content="vm.pageHeader"></page-header>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <p ng-bind-html="vm.main.content | addHtmlLineBreaks"></p>
+        </div>
+    </div>
+</div>
+
+<footer-generic></footer-generic>

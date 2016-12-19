@@ -1,6 +1,6 @@
-angular.module('wifilocApp').directive('footerGeneric', function() {
+angular.module('wifilocApp').directive('navigation', function() {
     return {
         restrict: 'EA',
-        templateUrl: '/common/directives/footerGeneric/footerGeneric.template.html'
+        templateUrl: '/common/directives/navigation/navigation.template.html'
     };
 });

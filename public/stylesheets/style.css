@@ -19,11 +19,10 @@ body > .container {
     color: white;
 }
 
-p.features .label {
+/* Single location info */
+.facilities .label {
     margin-right: 5px;
 }
-
-/* Single location info */
 .review {
     padding-bottom: 5px;
 }
@@ -41,4 +40,7 @@ p.features .label {
 }
 .add-review {
     margin-top: -5px;
+}
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
 }

@@ -1,4 +1,4 @@
-angular.module('wifilocApp').controller('aboutCtrl', ['$scope', function($scope) {
+angular.module('wifilocApp').controller('aboutCtrl', [function() {
     var vm = this;
 
     vm.pageHeader = {
