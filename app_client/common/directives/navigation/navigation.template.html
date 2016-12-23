@@ -13,6 +13,14 @@
             <ul class="nav navbar-nav">
                 <li><a href="/#about">About</a></li>
             </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="vmnav.isLoggedIn"><a href="/#login?page={{ vmnav.currentPath }}">Login</a></li>
+                <li ng-hide="vmnav.isLoggedIn"><a href="/#register?page={{ vmnav.currentPath }}">Register</a></li>
+
+                <li ng-show="vmnav.isLoggedIn"><a href="" ng-click="vmnav.logout()">Logout {{ vmnav.currentUser.name }}</a></li>
+            </ul>
         </div>
+
     </div>
 </div>
