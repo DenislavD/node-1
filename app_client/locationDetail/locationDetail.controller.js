@@ -1,4 +1,4 @@
-angular.module('wifilocApp').controller('locationDetailCtrl', ['$scope', '$routeParams', 'wifilocData', '$uibModal', function($scope, $routeParams, wifilocData, $uibModal) {
+angular.module('wifilocApp').controller('locationDetailCtrl', ['$location', '$routeParams', 'wifilocData', '$uibModal', 'auth', function($location, $routeParams, wifilocData, $uibModal, auth) {
     var vm = this;
 
     vm.locationid = $routeParams.locationid;
@@ -16,6 +16,9 @@ angular.module('wifilocApp').controller('locationDetailCtrl', ['$scope', '$route
     vm.pageHeader = {
         title: 'Location detail page'
     };
+
+    vm.isLoggedIn = auth.isLoggedIn();
+    vm.currentPath = $location.path();
 
     vm.popupReviewForm = function() {
         var uibModalInstance = $uibModal.open({

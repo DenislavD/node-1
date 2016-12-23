@@ -1,0 +1,59 @@
+<navigation></navigation>
+
+<div class="container">
+    <page-header content="vm.pageHeader"></page-header>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <p class="lead">Already a member? Please <a href="/#login?page={{ vm.returnPage }}">log in</a> instead.</p>
+            <form name="vm.registerForm" ng-submit="vm.onSubmit()">
+                <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+
+                <div class="form-group">
+                    <label>Full name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter your name" ng-model="vm.credentials.name" ng-required="true">
+                    <span class="text-danger" ng-show="vm.registerForm.name.$dirty &&
+                        vm.registerForm.name.$error.required">
+                        Please enter your name.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="vm.credentials.email" ng-required="true">
+                    <span class="text-danger" ng-show="vm.registerForm.email.$dirty &&
+                        vm.registerForm.email.$error.required">
+                        Please enter your email.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" ng-model="vm.credentials.password" ng-required="true" ng-minlength="5">
+                    <span class="text-danger" ng-show="vm.registerForm.password.$dirty && vm.registerForm.password.$error.required">
+                        Please enter a password.
+                    </span>
+                    <span class="text-danger" ng-show="vm.registerForm.password.$dirty && vm.registerForm.password.$error.minlength">
+                        The password should be at least 5 characters.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Repeat password</label>
+                    <input type="password" class="form-control" name="password2" placeholder="Repeat password" ng-model="vm.credentials.password2" ng-required="true">
+                    <span class="text-danger" ng-show="vm.registerForm.password2.$dirty && vm.registerForm.password2.$error.required">
+                        Please repeat your password.
+                    </span>
+                    <span class="text-danger" ng-show="vm.registerForm.password.$dirty && vm.registerForm.password2.$dirty && vm.registerForm.password2.$viewValue.length && vm.registerForm.password.$viewValue !== vm.registerForm.password2.$viewValue">
+                        The passwords do not match.
+                    </span>
+                </div>
+
+                <button type="submit" class="btn btn-default">Register!</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<footer-generic></footer-generic>

@@ -24,7 +24,6 @@ angular.module('wifilocApp').controller('reviewModalCtrl', ['$uibModalInstance',
 
     vm.doAddReview = function(locationid, formData) {
         wifilocData.addReviewToLocId(locationid, {
-            author: formData.name,
             rating: formData.rating,
             reviewText: formData.reviewText
         })
